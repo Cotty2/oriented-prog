@@ -6,16 +6,18 @@
 #include <string>
 
 bool letters(const std::string& word) {
-    if ((unsigned char)word[0] == 0xD0 && word.size() >= 2) {
-        unsigned char c = word[1];
-        return (c >= 0x90 && c <= 0xAF); 
+    if (word.size() < 2) {
+        return false;
     }
-    if ((unsigned char)word[0] == 0xD1 && word.size() >= 2) {
-        unsigned char c = word[1];
-        return c == 0x81; 
+    unsigned char b1 = static_cast<unsigned char>(word[0]);
+    unsigned char b2 = static_cast<unsigned char>(word[1]);
+
+    if (b1 != 0xD0) {
+        return false;
     }
-    return false;
+    return (b2 == 0x81) || (b2 >= 0x90 && b2 <= 0xAF);
 }
+
 
 int main() {
     std::ifstream file("test.txt");

@@ -14,7 +14,7 @@ using namespace std;
 int main()
 {
     Pet p1;
-    Pet p2("Мурка", "Кошка");
+    Pet p2("Барбос", "Собака");
     Pet p3("Барбос", "Собака");
     Pet p4("Пушок", "Кошка");
     Pet p5("Чики", "Хомяк");
@@ -35,7 +35,7 @@ int main()
 
     std::cout << "----------------" << "\n";
 
-    petSet = getPetsOfType(petList, "Кошка");
+    petSet = getPetsOfType(petList, "Собака");
 
     for (std::set<Pet>::iterator it = petSet.begin(); it != petSet.end(); it++)
     {
